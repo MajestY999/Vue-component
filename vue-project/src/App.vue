@@ -1,21 +1,21 @@
 <template>
-  <div id="app" style="text-align: center; padding-top: 40px; font-family: sans-serif;">
-    <h1>Изучение слотов во Vue.js</h1>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
 
-    <BaseAlert>
-      Это первое уведомление, здесь просто текст.
-    </BaseAlert>
-
-    <BaseAlert>
-      <b>Внимание!</b> Это очень важное и  жирное сообщение.
-    </BaseAlert>
-
-    <BaseAlert>
-      Тут какая-то ошибка. Подробнее можно узнать <a href="#">здесь</a>.
-    </BaseAlert>
+  <div id="app" class="ui container" style="margin-top: 20px;">
+    <h1>GitHub Profiles</h1>
+    
+    <GithubUserCard 
+      v-for="u in usernames" 
+      :key="u" 
+      :username="u" 
+    />
   </div>
 </template>
 
 <script setup>
-import BaseAlert from './components/BaseAlert.vue'
+import { ref } from 'vue'
+import GithubUserCard from './components/GithubUserCard.vue'
+
+
+const usernames = ref(['danielkellyio', 'hootlex', 'rahaug', 'akryum'])
 </script>
